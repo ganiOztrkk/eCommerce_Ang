@@ -1,0 +1,21 @@
+<title>e-Commerce | Anasayfa </title>
+
+<div class="row text-center">
+    @for (shoe of shoes; track shoe) {
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-5">
+            <div class="card text-center" style="height: 45vh;">
+                <div class="card-body">
+                    <img class="img-fluid" src="{{shoe.img}}">
+                </div>
+                <div class="card-header" style="height: 10vh;">
+                    <h5>{{shoe.title}}</h5>
+                    <p>{{shoe.description}}</p>
+                </div>
+                <div class="card-body" style="height: 6vh;">
+                    <h5>{{shoe.price | trCurrency: "₺": true}}</h5>
+                    <button class="btn btn-dark w-100"><i class="fa-solid fa-cart-shopping"></i></button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
