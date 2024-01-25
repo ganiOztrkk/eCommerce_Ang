@@ -1,63 +1,71 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark mb-2" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a 
-      class="navbar-brand" 
-      routerLink="/" >
+<nav
+  class="navbar navbar-expand-lg bg-body-tertiary bg-dark mb-2"
+  data-bs-theme="dark"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">
       <i class="fa-solid fa-store"></i>
       e-Commerce
     </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <li class="nav-item">
-            <a 
-            class="nav-link me-2" 
-            aria-current="page" 
-            routerLink="/" >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link me-2" aria-current="page" routerLink="/">
             <i class="fa-solid fa-house"></i>
             Anasayfa
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a 
-            class="nav-link" 
-            routerLink="/orders">
+          </a>
+        </li>
+        @if (isAuthenticated){
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/orders">
             <i class="fa-solid fa-basket-shopping"></i>
             Siparişlerim
-            </a>
-          </li>
-        
-        </ul>
-        <div class="d-flex">
-
-          <button 
-          style="color: #fff;" 
-          class="btn btn-outline-success me-2" 
-          routerLink="/shopping-charts" >
+          </a>
+        </li>
+        }
+      </ul>
+      <div class="d-flex">
+        @if (isAuthenticated) {
+        <button
+          style="color: #fff"
+          class="btn btn-outline-success position-relative me-2"
+          routerLink="/shopping-charts"
+        >
           <i class="fa-solid fa-cart-shopping me-1"></i>
           Sepet
-          </button>
-
-          <button 
-          style="color: #fff;" 
-          class="btn btn-outline-success me-2" 
-          routerLink="/login">
-          <i class="fa-solid fa-door-open me-2"></i>
-          Giriş
-          </button>
-
-          <button 
-          style="color: #fff;" 
-          class="btn btn-outline-danger" >
+          <span
+            class="position-absolute top-100 start-0 translate-middle badge rounded-pill bg-danger"
+          >
+            {{cart.count}}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </button>
+        <button style="color: #fff" class="btn btn-outline-danger">
           <i class="fa-solid fa-person-walking-arrow-right me-1"></i>
           Çıkış
-          </button>
-
-        </div>
+        </button>
+        }@else {
+        <button
+          style="color: #fff"
+          class="btn btn-outline-success me-2"
+          routerLink="/login"
+        >
+          <i class="fa-solid fa-door-open me-2"></i>
+          Giriş
+        </button>
+        }
       </div>
     </div>
-  </nav>
+  </div>
+</nav>

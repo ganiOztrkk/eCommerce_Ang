@@ -13,9 +13,15 @@
                 </div>
                 <div class="card-body" style="height: 6vh;">
                     <h5>{{shoe.price | trCurrency: "₺": true}}</h5>
-                    <button class="btn btn-dark w-100"><i class="fa-solid fa-cart-shopping"></i></button>
+                    @if(isAuthenticated){
+                        <button (click)="addShoppingChart(shoe.id)" class="btn btn-dark w-100"><i class="fa-solid fa-cart-shopping"></i></button>
+                    }@else {
+                        <a routerLink="/login" class="text-danger"><i class="fa-solid fa-cart-shopping"></i>Sepete Eklemek İçin Giriş Yapın.</a>
+                    }
                 </div>
             </div>
         </div>
+    }@empty {
+        <h1 class="text-center text-danger">Gösterilecek ürün bulunamadı...</h1>
     }
 </div>

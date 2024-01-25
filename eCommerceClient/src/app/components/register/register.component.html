@@ -1,3 +1,70 @@
 <title>e-Commerce | Register </title>
 
-<p>register works!</p>
+<div
+  class="d-flex align-items-center justify-content-center"
+  style="height: 70vh"
+>
+  <div class="card" style="width: 50%">
+    <div class="card-header text-center">
+      <h2>Kayıt Ol</h2>
+      <p>Bilgilerinizi giriniz.</p>
+    </div>
+    <form #registerForm="ngForm" autocomplete="off" (ngSubmit)="signUp(registerForm)">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="firstName">Ad</label>
+          <input
+            ngModel
+            required
+            type="text"
+            class="form-control"
+            name="firstName"
+            id="firstName"
+            placeholder="Adınız..."
+          />
+        </div>
+        <div class="form-group">
+            <label for="lastName">Soyad</label>
+            <input
+              ngModel
+              required
+              type="text"
+              class="form-control"
+              name="lastName"
+              id="lastName"
+              placeholder="Soyadınız..."
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">E-Posta Adresi</label>
+            <input
+              ngModel
+              required
+              email
+              type="email"
+              class="form-control"
+              name="email"
+              id="email"
+              placeholder="email@email.com"
+            />
+          </div>
+        <div class="form-group mt-1">
+          <label for="password">Şifre</label>
+          <input
+            ngModel
+            required
+            type="password"
+            class="form-control"
+            name="password"
+            id="password"
+            placeholder="****"
+          />
+        </div>
+      </div>
+      <div class="card-footer text-end">
+        <button [disabled]="!registerForm.valid" class="btn btn-dark form-control">Kayıt Ol</button>
+        <a routerLink="/login" >Hesabınız zaten var mı?</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -10,5 +10,5 @@ import { NavbarComponent } from './navbar/navbar.component';
   styleUrl: './layouts.component.css'
 })
 export class LayoutsComponent {
-
+  
 }
