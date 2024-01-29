@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ShoppingCartService {
-  count: number = 0;
+  count: number = 3;
 
 
   constructor(private http: HttpClient) {
